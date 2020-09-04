@@ -1,4 +1,3 @@
-import axios from "axios";
 import Axios from "axios";
 
 class ClientArea {
@@ -18,7 +17,7 @@ class ClientArea {
   }
 
   sendRequest() {
-    Axios.post("https://lucid-blackwell-b7d9d5.netlify.app/.netlify/functions/secret-area", {
+    Axios.post("https://lucid-blackwell-b7d9d5.netlify.com/.netlify/functions/secret-area", {
       password: this.field.value,
     })
       .then((response) => {
@@ -26,7 +25,7 @@ class ClientArea {
         this.contentArea.innerHTML = response.data;
       })
       .catch(() => {
-        this.contentArea.innerHTML = `<p class="client-area__error>That secret phrase is not correct.Try again</p>`;
+        this.contentArea.innerHTML = `<p class="client-area__error">That secret phrase is not correct.Try again.</p>`;
         this.field.value = "";
         this.field.focus();
       });
@@ -38,7 +37,7 @@ class ClientArea {
       `<div class="client-area">
   <div class="wrapper wrapper--medium">
     <h2 class="section-title section-title--blue">Secret Client Area</h2>
-    <form class="client-area__form" action="" >
+    <form class="client-area__form" action="">
     <input class="client-area__input" type="text" placeholder="Enter the secret phrase">
       <button class="btn btn--orange">Submit</button>
     </form>
